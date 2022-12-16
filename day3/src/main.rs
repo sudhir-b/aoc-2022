@@ -1,7 +1,9 @@
 use std::collections::HashMap;
 use std::fs;
+use std::time::Instant;
 
 fn main() {
+    let start = Instant::now();
     let file_name = "input.txt";
 
     // Read the contents of the file into a string
@@ -50,5 +52,7 @@ fn main() {
         priority_sum += bitwise_and.first().unwrap();
     }
 
-    println!("{:?}", priority_sum)
+    println!("{:?}", priority_sum);
+    let duration = start.elapsed();
+    println!("{:?}", duration)
 }
