@@ -55,13 +55,9 @@ fn traverse(node: NodeRef) -> Box<dyn Iterator<Item = NodeRef>> {
     )
 }
 
-fn part_1() {
+fn main() {
     let start = Instant::now();
-
-    let file_name = "input.txt";
-
-    // Read the contents of the file into a string
-    let contents = fs::read_to_string(file_name).expect("Error reading file");
+    let contents = include_str!("input.txt");
 
     let root: NodeRef = NodeRef::default();
     let mut node = root.clone();
@@ -113,17 +109,27 @@ fn part_1() {
         }
     }
 
-    println!("{root:#?}");
+    let small_dirs = traverse(root.clone())
+        .map(|node| node.borrow().total_size())
+        .filter(|&size| size <= 100_000)
+        .sum::<u64>();
 
+    dbg!(small_dirs);
     // traverse tree to calculate directory sizes
     // DFS or BFS?
 
+
+    // part 2
+
+    let unused_space = 70000000 - root.borrow().total_size();
+
+    let smallest_big_dir = traverse(root)
+        .map(|node| node.borrow().total_size())
+        .filter(|&size| unused_space + size >= 30000000)
+        .min();
+
+    dbg!(smallest_big_dir);
+
     let duration = start.elapsed();
     println!("{:?}", duration)
-}
-
-fn part_2() {}
-
-fn main() {
-    part_1()
 }
