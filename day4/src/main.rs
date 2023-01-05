@@ -1,12 +1,8 @@
-use std::fs;
 use std::time::Instant;
 
 fn part_1() {
     let start = Instant::now();
-    let file_name = "input.txt";
-
-    // Read the contents of the file into a string
-    let contents = fs::read_to_string(file_name).expect("Error reading file");
+    let contents = include_str!("input.txt");
 
     // This can't be the best way of doing this in a functional style surely!
     let ranges: Vec<Vec<Vec<usize>>> = contents
@@ -33,10 +29,7 @@ fn part_1() {
 
 fn part_2() {
     let start = Instant::now();
-    let file_name = "input.txt";
-
-    // Read the contents of the file into a string
-    let contents = fs::read_to_string(file_name).expect("Error reading file");
+    let contents = include_str!("input.txt");
 
     // This can't be the best way of doing this in a functional style surely!
     let ranges: Vec<Vec<Vec<usize>>> = contents

@@ -1,4 +1,3 @@
-use std::fs;
 use std::time::Instant;
 
 //         [J]         [B]     [T]
@@ -26,10 +25,7 @@ fn part_1() {
         vec!["W", "G", "D", "N", "P", "L"],
     ];
 
-    let file_name = "input.txt";
-
-    // Read the contents of the file into a string
-    let contents = fs::read_to_string(file_name).expect("Error reading file");
+    let contents = include_str!("input.txt");
 
     for line in contents.lines() {
         let split_line: Vec<&str> = line.split(" ").collect();
@@ -68,11 +64,7 @@ fn part_2() {
         vec!["W", "G", "D", "N", "P", "L"],
     ];
 
-    let file_name = "input.txt";
-
-    // Read the contents of the file into a string
-    let contents = fs::read_to_string(file_name).expect("Error reading file");
-
+    let contents = include_str!("input.txt");
     for line in contents.lines() {
         let split_line: Vec<&str> = line.split(" ").collect();
         let number: usize = split_line[1].parse().unwrap();

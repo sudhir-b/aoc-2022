@@ -1,13 +1,9 @@
 use std::collections::HashMap;
-use std::fs;
 use std::time::Instant;
 
 fn main() {
     let start = Instant::now();
-    let file_name = "input.txt";
-
-    // Read the contents of the file into a string
-    let contents = fs::read_to_string(file_name).expect("Error reading file");
+    let contents = include_str!("input.txt");
 
     let alphabet = (b'a'..=b'z')
         .chain(b'A'..=b'Z')

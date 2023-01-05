@@ -96,10 +96,7 @@ pub fn calculate_score(opponent_choice: OpponentChoice, player_choice: PlayerCho
 }
 
 fn main() {
-    let file_name = "input.txt";
-
-    // Read the contents of the file into a string
-    let contents = fs::read_to_string(file_name).expect("Error reading file");
+    let contents = include_str!("input.txt");
 
     let mut total_score = 0;
 

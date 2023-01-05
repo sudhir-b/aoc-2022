@@ -1,10 +1,6 @@
-use std::fs;
-
 fn main() {
-    let file_name = "input.txt";
-
     // Read the contents of the file into a string
-    let contents = fs::read_to_string(file_name).expect("Error reading file");
+    let contents = include_str!("input.txt");
 
     // most efficient implementation is probably to just keep a top three and bump them off if any new totals are higher
 
