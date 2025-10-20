@@ -1,53 +1,53 @@
-Advent of Code – Rust Workspace (Days 1–7)
+Advent of Code – Espace de travail Rust (Jours 1–7)
 
-Overview
-- This repository is a Rust workspace containing seven independent binary crates: day1 through day7.
-- Each crate solves one daily puzzle using only the Rust standard library (no external dependencies).
-- Puzzle input is embedded at compile time via include_str! from src/input.txt inside each crate.
+Aperçu
+- Ce dépôt est un espace de travail Rust qui contient sept crates binaires indépendantes : day1 à day7.
+- Chaque crate résout une énigme quotidienne en utilisant uniquement la bibliothèque standard de Rust (aucune dépendance externe).
+- Les données d’entrée des énigmes sont intégrées à la compilation via include_str! à partir de src/input.txt dans chaque crate.
 
-Requirements
-- Rust (stable) and Cargo installed. Get them via https://rustup.rs
+Prérequis
+- Rust (stable) et Cargo installés. Installez-les via https://rustup.rs
 
-Workspace layout
-- Cargo.toml (workspace root)
+Organisation de l’espace de travail
+- Cargo.toml (racine de l’espace de travail)
 - dayN/
-  - Cargo.toml (crate manifest)
+  - Cargo.toml (manifest de la crate)
   - src/
-    - main.rs (solution entry point)
-    - input.txt (embedded puzzle input)
+    - main.rs (point d’entrée de la solution)
+    - input.txt (données d’entrée intégrées)
 
-Build
-- Build all crates in the workspace (debug):
+Compilation
+- Compiler toutes les crates de l’espace de travail (mode debug) :
   - cargo build --workspace
-- Build all crates in release mode (faster execution):
+- Compiler toutes les crates en mode release (exécution plus rapide) :
   - cargo build --workspace --release
 
-Run
-- From the workspace root, run an individual day (replace N with 1–7):
+Exécution
+- Depuis la racine de l’espace de travail, exécuter un jour précis (remplacez N par 1–7) :
   - cargo run -p dayN
-  - Example: cargo run -p day3
-- Run with optimizations:
+  - Exemple : cargo run -p day3
+- Exécuter avec optimisations :
   - cargo run -p dayN --release
-- Alternatively, from within a crate directory:
+- Alternativement, depuis le répertoire d’une crate :
   - cd dayN && cargo run
 
-Run all days
-- Bash/Zsh:
+Exécuter tous les jours
+- Bash/Zsh :
   - for d in 1 2 3 4 5 6 7; do cargo run -q -p day$d --release; done
-- PowerShell:
+- PowerShell :
   - 1..7 | ForEach-Object { cargo run -q -p "day$_" --release }
 
-Inputs
-- Each crate reads its input from src/input.txt at compile-time with include_str!.
-- To try different input, edit the corresponding src/input.txt and re-run (rebuild is automatic on change).
+Entrées
+- Chaque crate lit son entrée depuis src/input.txt à la compilation avec include_str!.
+- Pour essayer une autre entrée, modifiez le src/input.txt correspondant puis relancez (la recompilation est automatique en cas de modification).
 
-Performance notes
-- Some solutions print simple timing information using std::time::Instant.
-- Use --release for representative timings.
+Notes de performance
+- Certaines solutions affichent des informations de chronométrage simples en utilisant std::time::Instant.
+- Utilisez --release pour des temps représentatifs.
 
-Contributing / Development
-- No external crates are used; solutions rely on standard library data structures and algorithms.
-- Keep each day self-contained under its own crate to preserve the workspace organization.
+Contribution / Développement
+- Aucune crate externe n’est utilisée ; les solutions s’appuient sur les structures de données et algorithmes de la bibliothèque standard.
+- Conservez chaque jour autonome dans sa propre crate afin de préserver l’organisation de l’espace de travail.
 
-License
-- No license file is included. If you plan to publish or reuse the code, consider adding an appropriate LICENSE file.
+Licence
+- Aucun fichier de licence n’est fourni. Si vous envisagez de publier ou de réutiliser le code, pensez à ajouter un fichier LICENSE approprié.
