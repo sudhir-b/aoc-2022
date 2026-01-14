@@ -1,0 +1,2 @@
+Hello from the EditFile tool!
+This file was created to exercise the WriteFile tool.
